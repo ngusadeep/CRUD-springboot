@@ -15,9 +15,68 @@
             </h2>
             <form method="post" th:object="${customerDto}">
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <label for="inputFirstName" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="inputFirstName" th:field="${customerDto.firstName}">
+                    <p th:if="${#fields.hasErrors('firstName')}" th:errorclass="text-danger" th:errors="${customerDto.firstName}"></p>
+                </div>
 
+                <div class="mb-3">
+                    <label for="inputLastName" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="inputLastName" th:field="${customerDto.lastName}">
+                    <p th:if="${#fields.hasErrors('lastName')}" th:errorclass="text-danger" th:errors="${customerDto.lastName}"></p>
+                </div>
+
+                <div class="mb-3">
+                    <label for="inputEmail" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" th:field="${customerDto.email}">
+                    <p th:if="${#fields.hasErrors('email')}" th:errorclass="text-danger" th:errors="${customerDto.email}"></p>
+                </div>
+
+                <div class="mb-3">
+                    <label for="inputPhone" class="form-label">Phone</label>
+                    <input type="text" class="form-control" id="inputPhone" th:field="${customerDto.phone}">
+                    <p th:if="${#fields.hasErrors('phone')}" th:errorclass="text-danger" th:errors="${customerDto.phone}"></p>
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="inputAddress" class="form-label">Address</label>
+                    <input type="text" class="form-control" id="inputAddress" th:field="${customerDto.address}">
+                    <p th:if="${#fields.hasErrors('address')}" th:errorclass="text-danger" th:errors="${customerDto.address}"></p>
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="inputGender" class="form-label">Gender</label>
+                    <div class="col-sm-8">
+                        <select class="form-select" id="inputGender" th:field="${customerDto.gender}">
+                            <option value="Male"> Male</option>
+                            <option value="Female" >Female</option>
+                        </select>
+                        <p th:if="${#fields.hasErrors('gender')}" th:errorclass="text-danger" th:errors="${customerDto.gender}"></p>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="inputStatus" class="form-label">Status</label>
+                    <div class="col-sm-8">
+                        <select class="form-select" id="inputStatus" th:field="${customerDto.status}">
+                            <option value="New"> New</option>
+                            <option value="Permanent" >Permanent</option>
+                            <option value="Lead" >Lead</option>
+                            <option value="Occasional" >Occasional</option>
+                            <option value="Inactive" >Inactive</option>
+                        </select>
+                        <p th:if="${#fields.hasErrors('status')}" th:errorclass="text-danger" th:errors="${customerDto.status}"></p>
+                    </div>
+                </div>
+                <div class="row gap-2 ">
+                    <div class="col-sm-4 d-grid">
+                        <button class="btn btn-primary" type="submit" >Submit</button>
+                    </div>
+                    <div class="col-sm-4 d-grid">
+                        <a class="btn btn-outline-primary" href="/customers" >Cancel</a>
+                    </div>
                 </div>
             </form>
         </div>
